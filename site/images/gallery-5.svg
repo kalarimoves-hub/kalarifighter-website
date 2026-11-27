@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+<rect width="400" height="300" fill="#141416"/>
+<rect x="6" y="6" width="388" height="288" fill="none" stroke="#8a6d2c" stroke-width="2" stroke-dasharray="8 6" rx="8"/>
+<text x="50%" y="47%" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#c9a24a">Gallery photo 5</text>
+<text x="50%" y="58%" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#8f8a80">lunge</text>
+</svg>
