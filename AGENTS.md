@@ -10,8 +10,10 @@ Krishna is not a programmer. He asks for changes in plain words. Keep every chan
   - `site/js/main.js`: the phone menu, the contact form and the gallery viewer.
   - `site/images/`: pictures.
 - There is no build step and no framework. Plain HTML, CSS and JavaScript only.
-- When a change is merged into `main`, GitHub Pages publishes it to kalarifighter.com within a few minutes
-  (`.github/workflows/pages.yml`).
+- When a change is merged into `main`, GitHub Pages publishes it within a few minutes (`.github/workflows/pages.yml`).
+- Before launch, kalarifighter.com shows the page in `coming-soon/`, and the full site is at kalarifighter.com/preview/
+  (hidden from Google). At launch, `LAUNCHED` in the workflow is set to "yes" and kalarifighter.com shows `site/`.
+  Do not change `coming-soon/` or `LAUNCHED` unless asked.
 - Every pull request gets a preview link from Cloudflare Pages, so Krishna can check it before merging.
 
 ## Rules

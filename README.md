@@ -3,6 +3,8 @@
 The website for kalarifighter.com. The files the public sees are in `site/`.
 
 - **Live site:** https://kalarifighter.com (GitHub Pages, publishes automatically when `main` changes)
+- **Before launch:** kalarifighter.com shows a coming soon page (`coming-soon/`); the full site is at
+  https://kalarifighter.com/preview/. To launch, set `LAUNCHED: "yes"` in `.github/workflows/pages.yml`.
 - **Previews:** every pull request gets a Cloudflare Pages preview link
 - **Contact form:** Web3Forms emails each message to hello@kalarifighter.com
 - **Email:** hello@kalarifighter.com is a Hostinger mailbox
