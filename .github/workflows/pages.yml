@@ -1,5 +1,10 @@
-# Publishes the site/ folder to GitHub Pages every time main changes.
-# Do not edit unless you know why.
+# Publishes the website to GitHub Pages every time main changes.
+#
+# BEFORE LAUNCH (now):  kalarifighter.com          = coming-soon/
+#                       kalarifighter.com/preview/ = site/   (hidden from Google)
+# AT LAUNCH: set LAUNCHED to "yes" below. Then kalarifighter.com = site/
+#
+# Do not edit anything else unless you know why.
 name: Publish website
 
 on:
@@ -16,6 +21,9 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+env:
+  LAUNCHED: "no"
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -24,9 +32,23 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Put the files together
+        run: |
+          mkdir -p _site
+          if [ "$LAUNCHED" = "yes" ]; then
+            cp -R site/. _site/
+          else
+            cp -R coming-soon/. _site/
+            mkdir -p _site/preview
+            cp -R site/. _site/preview/
+            rm -f _site/preview/robots.txt _site/preview/sitemap.xml _site/preview/404.html
+            perl -0pi -e 's#<head>#<head>\n  <meta name="robots" content="noindex, nofollow">#' _site/preview/index.html
+          fi
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4
